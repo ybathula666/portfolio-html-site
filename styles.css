@@ -1,120 +1,140 @@
-body {
-  font-family: "Lato", sans-serif;
-  margin: 0px;
+/* Master Styles */
+body{
+    margin: 0px;
 }
+ /* manipulates body of html*/
 
-.container {
-  display: grid;
-  grid-template-columns: 1fr;
+ .container{
+     display: grid;
+     grid-template-columns: 1fr;
+ }
+  /* splits the page into 16 columns */
+
+.nav-wrapper{
+display: flex;
+justify-content: space-between;
+padding: 38px;
 }
+ /* 'flex' aligns text side-by side instead of stacking them
+ spacing between elements is added here as well as 
+ padding in margins*/
 
-.nav-wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 38px;
+.left-side{
+    display:flex;
 }
+ /* 'flex' aligns text side-by side instead of stacking them*/
 
-.left-side {
-  display: flex;
-}
-
+ /* Nav styles*/
 .nav-wrapper > .left-side > div {
-  margin-right: 20px;
-  text-transform: uppercase;
-  font-size: 0.9rem;
+    margin-right: 20px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+ /* navigating to all 'div' within 'left-side' 
+ within 'nav-wrapper' and setting those elements margin, size 
+ and capitalization*/
+
+.nav-Link-Wrapper{
+    height: 22px;
+    border-bottom: 1px solid transparent;
+    transition:border-bottom 0.5s;
+}
+ /* nav elements size set, invisible border along with animation set */
+
+.nav-Link-Wrapper a{
+    color: #8a8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+ /* hyperlink in nav 
+ font color is changes, default
+  html underline removed and animation added*/
+
+.nav-Link-Wrapper:hover{
+    border-bottom: 1px solid black
+} 
+ /* nav links given underline with color change when hovered */
+
+.nav-Link-Wrapper a:hover{
+   color: black
+ } 
+ /* color of the actual hyperlink text
+  (tag 'a' is for hyperlinks) is changed when hovers*/
+
+   /* Portfolio Styles */
+
+ 
+   .portfolio-items-wrappers{
+       display:grid;
+       grid-template-columns: 1fr 1fr 1fr;
+   }
+   /* makes a grid for all items in wrapper 
+    which will have with 3 columns,
+    each having their own full sized columns */
+    
+    .portfolio-item-wrapper{
+        position:relative;  
+    }
+    /* allows flexibility in image behaviour 
+    for all elements inside each individual image
+    and their nested, wrapped elements 
+    REQUIRE IF PLANNING TO USE 'ABOSLUTE' LOCATIONS
+    ON OTHER ELEMENTS*/
+
+    .portfolio-img-background{
+        height: 350px;
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    /* working with each individually wrapped element
+     1. sets height 
+     2. width 100% makes width adjust automatically to page size
+     3. using 'cover' makes differently sized images crop to same size & lay nicely 
+     4. using 'center' lays images at center 
+     5. 'no-repeat' */
+
+     .img-text-wrapper{
+         position: absolute;
+         top: 0;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         height: 100%;
+         text-align : center;
+         padding-left: 100px;
+         padding-right: 100px;
+
+     }
+     /* 'ABSOLUTE' position marks elements which will go in a 
+        position where they are not meant to go WITHIN an upper,
+        wrapper section
+        marked as 'relative'. 
+        Prior 'RELATIVE' section required to use 'ABSOLUTE'.
+       1. top 0 means start @ top of page
+       2. using 'flex' to indicate all elements in 'logo-wrapper' div
+       will be using flex box
+       3. alight left->right and top-> bottom with 'justify-context'
+       and 'align-items'
+     4. height 100% makes logos take up 100% parent wrapper's height
+        */
+ 
+   .logo-wrapper img{
+    width: 50%;
+    margin-bottom: 20px;
+   }     
+/* subtitle */
+
+.img-text-wrapper:hover .subtitle{
+    font-weight:600;
+    color:aqua;
 }
 
-.nav-link-wrapper {
-  height: 22px;
-  border-bottom: 1px solid transparent;
-  transition: border-bottom 0.5s;
-}
+.img-darken{
+    transition: 1s;
+    filter: brightness(10%);
+} /* use JS */
 
-.active-nav-link {
-  border-bottom: 1px solid black;
-}
-
-.active-nav-link a {
-  color: black !important;
-}
-
-.nav-link-wrapper a {
-  color: #8a8a8a;
-  text-decoration: none;
-  transition: color 0.5s;
-}
-
-.nav-link-wrapper:hover {
-  border-bottom: 1px solid black;
-}
-
-.nav-link-wrapper a:hover {
-  color: black;
-}
-
-.portfolio-items-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-.portfolio-item-wrapper {
-  position: relative;
-}
-
-.portfolio-img-background {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 350px;
-  width: 100%;
-}
-
-.img-text-wrapper {
-  position: absolute;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  text-align: center;
-  padding-left: 100px;
-  padding-right: 100px;
-}
-
-.img-text-wrapper .subtitle {
-  transition: 1s;
-  color: transparent;
-}
-
-.image-blur {
-  transition: 1s;
-  filter: brightness(10%);
-}
-
-.img-text-wrapper:hover .subtitle {
-  color: lightseagreen;
-  font-weight: 600;
-}
-
-.logo-wrapper img {
-  width: 50%;
-  margin-bottom: 20px;
-}
-
-.two-column-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.profile-image-wrapper img {
-  width: 100%;
-}
-
-.profile-content-wrapper {
-  padding: 30px;
-}
-
-.profile-content-wrapper h1 {
-  color: lightseagreen;
-}
+   
